@@ -93,7 +93,7 @@ The `config.yml` file already has the correct `publishDir: "_gh_pages"` setting 
 
 The existing build process works well for GitHub Pages:
 
-- `npm run build:webpack` - Builds the webpack assets
+- `npm run build:webpack` - Builds the webpack assets (CSS and JavaScript)
 - `hugo` - Builds the Hugo site to `_gh_pages` directory (using config.yml setting)
 
 ### 4. GitHub Pages Setup
@@ -109,3 +109,4 @@ The existing build process works well for GitHub Pages:
 - Ensure Hugo is properly configured for the GitHub Actions environment
 - Verify that the publishDir in config.yml is set to "\_gh_pages"
 - If you encounter a browserslist error during webpack build, the workflow automatically updates the browserslist database before building
+- If you encounter JavaScript obfuscation issues in the GitHub Actions environment, the webpack configuration has been updated to use a simpler build process that works in CI environments
