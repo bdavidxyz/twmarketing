@@ -39,6 +39,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Update browserslist database
+        run: npx browserslist@latest --update-db
+
       - name: Build with webpack
         run: npm run build:webpack
 

@@ -59,11 +59,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Update browserslist database
+        run: npx browserslist@latest --update-db
+
       - name: Build with webpack
         run: npm run build:webpack
 
       - name: Build with Hugo
-        run: npm run build:hugo
+        run: hugo
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -91,7 +94,7 @@ The `config.yml` file already has the correct `publishDir: "_gh_pages"` setting 
 The existing build process works well for GitHub Pages:
 
 - `npm run build:webpack` - Builds the webpack assets
-- `npm run build:hugo` - Builds the Hugo site to `_gh_pages` directory
+- `hugo` - Builds the Hugo site to `_gh_pages` directory (using config.yml setting)
 
 ### 4. GitHub Pages Setup
 
@@ -105,3 +108,4 @@ The existing build process works well for GitHub Pages:
 - If the build fails, check that all dependencies are correctly specified in package.json
 - Ensure Hugo is properly configured for the GitHub Actions environment
 - Verify that the publishDir in config.yml is set to "\_gh_pages"
+- If you encounter a browserslist error during webpack build, the workflow automatically updates the browserslist database before building
