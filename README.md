@@ -1,4 +1,4 @@
-# Flowbite Pro - Landing Pages (Marketing UI)
+# Marketing Tw classes
 
 ## Getting started
 
